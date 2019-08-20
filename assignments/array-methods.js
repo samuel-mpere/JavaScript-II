@@ -128,7 +128,16 @@ runners.forEach((data) => companyDonation.push(data.company_name, data.donation)
 runners.map((ffnames) => firstNamesAllCaps.push(ffnames.first_name.toUpperCase()));
 
 let taxBreak = [];
-companyDonation.map((newData) => taxBreak.push(newData.company_name.toUpperCase(), newData.donation * 0.2.)
 
+// companyDonation.map((newData) => taxBreak.push(newData.company_name, newData.donation * 0.2));
+taxBreak = companyDonation.map(function(newData){
+  let result = {
+    company_name: newData.company_name,
+    donation: `${newData.donation*0.2} dollars`
+  }
+  return result;
+})
+
+console.log(taxBreak);
 
 // Problem 3
