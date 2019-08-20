@@ -97,6 +97,38 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 
+// In order to encourage more and large donations, donors who gave an amount higher than 200 will have the words GRAND PATRON added to their lastname's and displayed in CAPITAL LETTERS on the track course gigantic board. You are to return a new array of strings, containing `GRAND PATRON lastnames 
+
+runnersLargeSizeShirt = runners.filter( (tshirt) => tshirt.shirt_size === "L");
+
+let patron = [];
+patron = runners.filter(rich => rich.donation > 200);
+
+console.log(patron);
+
+let grandPatron = [];
+
+patron.filter((lnames) => patron.push(` GRAND PATRON ${lnames.last_name.toUpperCase()}`));
+
+console.log(grandPatron);
+
+
 // Problem 2
+// The more you give, the more tax breaks you are likely to receive. Your new assignment is to calculate the amount of tax break a company is likey to receive with regards to the amount they contributed. Using the forEach and map function return an array of strings showing each Company's name (capitalised) and the amount they are likely to receive (formatted with double digits)
+
+//step1 return company and contributions
+// runners.forEach((names) => fullNames.push(`${names.first_name} ${names.last_name}`));
+
+let companyDonation = [];
+runners.forEach((data) => companyDonation.push(data.company_name, data.donation));
+
+
+//step 2 return capitalised company name with newly formatted tax break 
+
+runners.map((ffnames) => firstNamesAllCaps.push(ffnames.first_name.toUpperCase()));
+
+let taxBreak = [];
+companyDonation.map((newData) => taxBreak.push(newData.company_name.toUpperCase(), newData.donation * 0.2.)
+
 
 // Problem 3
