@@ -4,6 +4,15 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+const fixedValue = 10;
+
+function generalMethod() {
+  var variation =  2;
+  return variation * fixedValue
+}
+
+console.log(generalMethod());
+
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 

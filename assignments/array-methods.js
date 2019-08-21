@@ -58,21 +58,38 @@ const runners = [
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
 let fullNames = [];
+runners.forEach((names) => fullNames.push(`${names.first_name} ${names.last_name}`));
+
 console.log(fullNames);
+
+// runners.forEach(function(names) {
+//   return fullNames.push(`${names.first_name} ${names.last_name}`)
+// });
+
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
 let firstNamesAllCaps = [];
+runners.map((ffnames) => firstNamesAllCaps.push(ffnames.first_name.toUpperCase()));
+// runners.map(function (ffnames){
+//   firstNamesAllCaps.push(ffnames.first_name.toUpperCase());
+// });
 console.log(firstNamesAllCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
 let runnersLargeSizeShirt = [];
+runnersLargeSizeShirt = runners.filter( (tshirt) => tshirt.shirt_size === "L");
+
 console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
 let ticketPriceTotal = 0;
+
+ticketPriceTotal = runners.reduce((acc, donations) => {
+  return acc + donations.donation;
+},0);
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
@@ -80,6 +97,47 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 
+// In order to encourage more and large donations, donors who gave an amount higher than 200 will have the words GRAND PATRON added to their lastname's and displayed in CAPITAL LETTERS on the track course gigantic board. You are to return a new array of strings, containing `GRAND PATRON lastnames 
+
+runnersLargeSizeShirt = runners.filter( (tshirt) => tshirt.shirt_size === "L");
+
+let patron = [];
+patron = runners.filter(rich => rich.donation > 200);
+
+console.log(patron);
+
+let grandPatron = [];
+
+patron.filter((lnames) => patron.push(` GRAND PATRON ${lnames.last_name.toUpperCase()}`));
+
+console.log(grandPatron);
+
+
 // Problem 2
+// The more you give, the more tax breaks you are likely to receive. Your new assignment is to calculate the amount of tax break a company is likey to receive with regards to the amount they contributed. Using the forEach and map function return an array of strings showing each Company's name (capitalised) and the amount they are likely to receive (formatted with double digits)
+
+//step1 return company and contributions
+// runners.forEach((names) => fullNames.push(`${names.first_name} ${names.last_name}`));
+
+let companyDonation = [];
+runners.forEach((data) => companyDonation.push(data.company_name, data.donation));
+
+
+//step 2 return capitalised company name with newly formatted tax break 
+
+runners.map((ffnames) => firstNamesAllCaps.push(ffnames.first_name.toUpperCase()));
+
+let taxBreak = [];
+
+// companyDonation.map((newData) => taxBreak.push(newData.company_name, newData.donation * 0.2));
+taxBreak = companyDonation.map(function(newData){
+  let result = {
+    company_name: newData.company_name,
+    donation: `${newData.donation*0.2} dollars`
+  }
+  return result;
+})
+
+console.log(taxBreak);
 
 // Problem 3
